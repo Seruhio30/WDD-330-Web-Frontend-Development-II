@@ -1,5 +1,10 @@
-# BYU-Pathway Worldwide Online
+
 ## WDD 330 - Web Frontend Development II
+
+randomized URL  Netlify:
+
+https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
+
 
 ### ⛺ SleepOutside Starter Code
 
@@ -20,8 +25,6 @@
 - `npm run build` to build final files when you are ready to turn in.
 
 
----
-_BYU-Pathway Worldwide improves lives through access to spiritually based, online affordable higher education. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities._
 
 
 
