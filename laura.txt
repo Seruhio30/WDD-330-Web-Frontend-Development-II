@@ -1,0 +1,57 @@
+1. Crear una nueva branch
+
+Nómbrala con tus iniciales, por ejemplo si te llamas Laura Nuñez:
+
+git checkout -b ln--branch-test
+
+
+Esto crea y te mueve a esa nueva branch.
+
+2. Crear un archivo con tu nombre
+
+En la carpeta raíz del proyecto:
+
+Archivo: laura.txt
+
+Contenido:
+
+Laura Nuñez
+
+3. Guardar, commit y push
+git add laura.txt
+git commit -m "Agrego archivo laura.txt en mi branch"
+git push origin ln--branch-test
+
+4. Hacer un Pull Request
+
+Ve a GitHub.
+
+Allí verás un botón para abrir un Pull Request desde tu rama hacia main.
+
+Eso es como decir: “Listo, revisen mis cambios y agréguenlos al proyecto principal”.
+
+5. Probar cambiar de branch
+
+En tu editor o consola:
+
+git checkout main
+
+
+Verás que tu archivo laura.txt ya no aparece porque está en otra branch.
+Si vuelves a tu branch:
+
+git checkout ln--branch-test
+
+
+¡El archivo aparece otra vez!
+Esto demuestra que cada branch puede tener versiones diferentes del proyecto.
+
+6. Revisar y mergear
+
+Otro miembro del equipo (o tú si trabajas sola) revisa el Pull Request en GitHub.
+
+Acepta (“Merge pull request”).
+
+Luego elimina la rama extra si ya no hace falta.
+
+🔹 Uso en la vida real
