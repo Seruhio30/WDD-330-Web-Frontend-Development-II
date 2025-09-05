@@ -1,9 +1,17 @@
 
+<<<<<<< HEAD
 randomized URL Netlify:
 
 https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
 
+=======
+>>>>>>> 62657e7c29b2c31b93fc5d243d0a1ab386cc4ca7
 ## WDD 330 - Web Frontend Development II
+
+randomized URL  Netlify:
+
+https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
+
 
 ### ⛺ SleepOutside Starter Code
 
@@ -24,3 +32,9 @@ https://68baa0976bd7e1f45914c14d--fastidious-eclair-b66d46.netlify.app/
 - `npm run build` to build final files when you are ready to turn in.
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 62657e7c29b2c31b93fc5d243d0a1ab386cc4ca7
