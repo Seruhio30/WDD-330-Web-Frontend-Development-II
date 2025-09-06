@@ -1,4 +1,5 @@
 
+
 import ProductData from './ProductData.mjs';
 import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
@@ -25,7 +26,7 @@ function addProductToCart(product) {
 
   cartItems.push(product);
   setLocalStorage('so-cart', cartItems);
->>>>>>> 494b185 (Fix car, now keep the items into array)
+
 }
 
 // add to cart button event handler
