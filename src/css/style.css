@@ -114,6 +114,16 @@ button {
   border-bottom: 2px solid var(--primary-color);
 }
 
+.discount-flag {
+  background-color: #ff3b3b;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 /* End utility classes */
 
 /* Cart icon styles */

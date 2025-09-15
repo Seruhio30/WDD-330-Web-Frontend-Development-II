@@ -22,5 +22,5 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-const productDetails = ProductDetails(productId, dataSource);
+const productDetails = new ProductDetails(productId, dataSource);
 productDetails.init();
