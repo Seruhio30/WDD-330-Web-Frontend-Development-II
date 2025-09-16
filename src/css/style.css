@@ -127,15 +127,46 @@ button {
 /* End utility classes */
 
 /* Cart icon styles */
-.cart {
-  padding-top: 1em;
+/*I added a new line here display: inline-block; */
+/*.cart {
+  padding-top: 2em;
   position: relative;
   text-align: center;
+  display: inline-block;
+}*/
+
+/* this css to show the cart counter*/
+
+.cart {
+  position: relative;
+  display: inline-block;
+  
+}
+
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: red;
+  color: white;
+  font-size: 0.75em;
+  padding: 4px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 100;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .cart svg {
   width: 25px;
+
 }
+
 
 .cart:hover svg {
   fill: gray;

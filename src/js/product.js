@@ -1,6 +1,7 @@
 import ProductData from './ProductData.mjs';
 import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
+import {updateCartCount} from './utils.mjs';
 
 const productId = getParam('product');
 const dataSource = new ProductData('tents');
@@ -13,7 +14,9 @@ const dataSource = new ProductData('tents');
 function addProductToCart(product) {
   const cartItems = getLocalStorage('so-cart') || [];
   cartItems.push(product);
+
   setLocalStorage('so-cart', cartItems);
+  updateCartCount();
 }
 
 // add to cart button event handler

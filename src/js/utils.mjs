@@ -35,3 +35,13 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
   const htmlStrings = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
 }
+
+//funtion updateCartCount 
+export function updateCartCount() {
+  const cartItems = getLocalStorage('so-cart');
+  const itemCount = cartItems ? cartItems.length : 0;
+  const countElement = document.querySelector('.cart-count');
+  if (countElement) {
+    countElement.textContent = itemCount;
+  }
+}
