@@ -3,7 +3,7 @@
 import ProductData from './ProductData.mjs';
 import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
-import {updateCartCount} from './utils.mjs';
+
 import { loadHeaderFooter } from './utils.mjs';
 loadHeaderFooter();
 
@@ -16,6 +16,7 @@ const dataSource = new ProductData('tents');
 //});
 
 function addProductToCart(product) {
+
 
   let cartItems = getLocalStorage('so-cart');
 
