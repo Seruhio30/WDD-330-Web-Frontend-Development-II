@@ -28,7 +28,7 @@ export function getParam(param){
   return urlParams.get(param);
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false){
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true){
   if(clear){
     parentElement.innerHTML = '';
   }
