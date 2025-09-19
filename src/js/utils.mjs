@@ -27,3 +27,21 @@ export function getParam(param){
   const urlParams = new URLSearchParams(queryString)
   return urlParams.get(param);
 }
+
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true){
+  if(clear){
+    parentElement.innerHTML = '';
+  }
+  const htmlStrings = list.map(templateFn);
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+//funtion updateCartCount 
+export function updateCartCount() {
+  const cartItems = getLocalStorage('so-cart');
+  const itemCount = cartItems ? cartItems.length : 0;
+  const countElement = document.querySelector('.cart-count');
+  if (countElement) {
+    countElement.textContent = itemCount;
+  }
+}
