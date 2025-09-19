@@ -22,14 +22,14 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function getParam(param){
+export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString)
   return urlParams.get(param);
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true){
-  if(clear){
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true) {
+  if (clear) {
     parentElement.innerHTML = '';
   }
   const htmlStrings = list.map(templateFn);
@@ -44,4 +44,38 @@ export function updateCartCount() {
   if (countElement) {
     countElement.textContent = itemCount;
   }
+
 }
+
+//funcion copiada
+export function renderWithTemplate(template, parentElement, data, callback) {
+
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
+  }
+}
+
+
+//se agrega una funcion  llamada loadHeaderFooter
+
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+//agregar otra funcion 
+
+export async function loadHeaderFooter(){
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  const headerElement = document.querySelector("#main-header");
+  const footerElement = document.querySelector("#main-footer");
+
+
+renderWithTemplate(headerTemplate, headerElement);
+renderWithTemplate(footerTemplate, footerElement);
+}
+
