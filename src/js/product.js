@@ -1,7 +1,16 @@
 import ProductData from './ProductData.mjs';
-import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
+import { getParam, getLocalStorage, setLocalStorage,updateCartCount,loadHeaderFooter } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
-import {updateCartCount} from './utils.mjs';
+
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  if (document.querySelector("#main-header") && document.querySelector("#main-footer")) {
+    await loadHeaderFooter(); // <-- aquí usas await
+  }
+  updateCartCount();
+
+
 
 const productId = getParam('product');
 const dataSource = new ProductData('tents');
@@ -21,9 +30,17 @@ function addProductToCart(product) {
 
 // add to cart button event handler
 async function addToCartHandler(e) {
-  const product = dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
+  const product = await dataSource.findProductById(e.target.dataset.id); // <-- agrega await
+  addProductToCart(product);// <-- aquí usas await
 }
-
 const productDetails = new ProductDetails(productId, dataSource);
-productDetails.init();
+await productDetails.init(); // <-- aquí usas await
+
+  // agregue esto 
+  // Conecta el botón "Add to Cart" después de inicializar los detalles Con esto, el contador del carrito se actualizará inmediatamente al hacer clic en "Add to Cart".
+
+const addToCartBtn = document.querySelector('#addToCart');
+if (addToCartBtn) {
+  addToCartBtn.addEventListener('click', addToCartHandler);
+}
+});
