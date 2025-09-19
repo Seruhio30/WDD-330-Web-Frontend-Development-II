@@ -1,11 +1,13 @@
 
 
 import ProductData from './ProductData.mjs';
-import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
+import { getParam, getLocalStorage, setLocalStorage, updateCartCount } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
+
 
 import { loadHeaderFooter } from './utils.mjs';
 loadHeaderFooter();
+updateCartCount();
 
 const productId = getParam('product');
 const dataSource = new ProductData('tents');
