@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
+>>>>>>> 494b185 (Fix car, now keep the items into array)
 import ProductData from './ProductData.mjs';
 import { getParam, getLocalStorage, setLocalStorage } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
@@ -12,11 +16,23 @@ const dataSource = new ProductData('tents');
 //});
 
 function addProductToCart(product) {
+<<<<<<< HEAD
   const cartItems = getLocalStorage('so-cart') || [];
   cartItems.push(product);
 
   setLocalStorage('so-cart', cartItems);
   updateCartCount();
+=======
+  let cartItems = getLocalStorage('so-cart');
+
+  // me seguro de que sea un array
+  if (!Array.isArray(cartItems)) {
+    cartItems = [];
+  }
+
+  cartItems.push(product);
+  setLocalStorage('so-cart', cartItems);
+>>>>>>> 494b185 (Fix car, now keep the items into array)
 }
 
 // add to cart button event handler
