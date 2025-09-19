@@ -7,8 +7,12 @@ import ProductDetails from './ProductDetails.mjs';
 document.addEventListener("DOMContentLoaded", async () => {
   if (document.querySelector("#main-header") && document.querySelector("#main-footer")) {
     await loadHeaderFooter(); // <-- aquí usas await
-  }
-  updateCartCount();
+ 
+   
+      updateCartCount();
+    }
+  
+ 
 
 
 
@@ -40,7 +44,10 @@ await productDetails.init(); // <-- aquí usas await
   // Conecta el botón "Add to Cart" después de inicializar los detalles Con esto, el contador del carrito se actualizará inmediatamente al hacer clic en "Add to Cart".
 
 const addToCartBtn = document.querySelector('#addToCart');
-if (addToCartBtn) {
-  addToCartBtn.addEventListener('click', addToCartHandler);
-}
+  if (addToCartBtn) {
+    // Asegurarse de no duplicar listeners
+    addToCartBtn.replaceWith(addToCartBtn.cloneNode(true));
+    const newBtn = document.querySelector('#addToCart');
+    newBtn.addEventListener('click', addToCartHandler);
+  }
 });
