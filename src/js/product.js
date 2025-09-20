@@ -1,6 +1,7 @@
 import ProductData from './ProductData.mjs';
-import { getParam, getLocalStorage, setLocalStorage, updateCartCount, loadHeaderFooter } from './utils.mjs';
+import { getParam, getLocalStorage, setLocalStorage,updateCartCount,loadHeaderFooter } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   if (document.querySelector("#main-header") && document.querySelector("#main-footer")) {
