@@ -36,7 +36,7 @@ function productDetailsTemplate(product) {
   document.querySelector('h3').textContent = product.NameWithoutBrand;
 
   const productImage = document.getElementById('productImage');
-  productImage.src = product.Image;
+  productImage.src = product.PrimaryLarge || product.PrimaryMedium || '/images/placeholder.png';
   productImage.alt = product.NameWithoutBrand;
 
   document.getElementById('productPrice').textContent = product.FinalPrice;
@@ -44,6 +44,30 @@ function productDetailsTemplate(product) {
   document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
 
   document.getElementById('addToCart').dataset.id = product.Id;
+
+    // aqui se agrega el badge de descuento si aplica
+const original = product.SuggestedRetailPrice;
+const final = product.FinalPrice;
+
+if (final < original) {
+  const discountPercent = Math.round(((original - final) / original) * 100);
+
+  // eliminar badge viejo si existe
+  const oldBadge = document.querySelector(".discount-badge");
+  if (oldBadge) oldBadge.remove();
+
+  // crear nuevo badge
+  const discountBadge = document.createElement("div");
+  discountBadge.classList.add("discount-badge");
+  discountBadge.textContent = `-${discountPercent}% OFF`; // inglés
+
+  const productContainer = document.querySelector(".product-detail");
+  if (productContainer) {
+    productContainer.prepend(discountBadge);
+  }
+}
+
+
 }
 
       
