@@ -5,7 +5,10 @@ import { loadHeaderFooter, getParam } from './utils.mjs';
 loadHeaderFooter();
 
 const category = getParam('category'); // ← esto permite que la categoría sea dinámica
-const dataSource = new ProductData();
+const dataSource = new ProductData(category);
 const listElement = document.querySelector('.product-list');
 const productList = new ProductList(category, dataSource, listElement);
 productList.init();
+
+
+

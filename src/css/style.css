@@ -135,6 +135,33 @@ button {
   display: inline-block;
 }*/
 
+/* inddex principal iconos de productos*/
+.category-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.category-card {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  width: 120px;
+}
+
+.category-card img {
+  width: 100px;
+  height: auto;
+}
+
+.category-card p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+
 /* this css to show the cart counter*/
 
 .cart {
