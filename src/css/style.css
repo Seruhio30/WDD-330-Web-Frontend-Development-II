@@ -233,6 +233,11 @@ button {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+
+/* agregue esto by laura:esto mantiene proporción y recorta si hace falta */
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
 }
 
 .product-card h2,

@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 const productId = getParam('product');
-const dataSource = new ProductData('tents');
+
+const dataSource = new ProductData();
+
 
 //solo para prueba
 //dataSource.findProductById(productId).then(product => {

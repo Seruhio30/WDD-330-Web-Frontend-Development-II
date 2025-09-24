@@ -1,24 +1,30 @@
+const baseURL = import.meta.env.VITE_SERVER_URL;
+
 function convertToJson(res) {
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error("Bad Response");
-  }
+  if (res.ok) return res.json();
+  throw new Error(`Bad Response: ${res.status}`);
 }
 
 export default class ProductData {
-  constructor(category) {
-    this.category = category;
-  this.path = `/json/${this.category}.json`;
+  async getData(category) {
+    const url = `${baseURL}products/search/${encodeURIComponent(category)}`;
+    console.log('GET products URL:', url);
+    const response = await fetch(url);
+    const data = await convertToJson(response);
+    console.log('API getData result:', data);
+   console.log('Primer producto:', data.Result[0]);
 
+
+    return data.Result ?? []; // fallback a [] si Result no existe
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
-  }
-  async findProductById(id) {
-    const products = await this.getData();
-    return products.find((item) => item.Id === id);
-  }
+
+async findProductById(id) {
+  const url = `${baseURL}product/${encodeURIComponent(id)}`;
+  console.log('GET product by id URL:', url);
+  const response = await fetch(url);
+  const data = await convertToJson(response);
+  console.log('API findProductById result:', data);
+  return data.Result ?? data; // fallback si Result no existe
+}
+
 }
