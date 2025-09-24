@@ -114,18 +114,59 @@ button {
   border-bottom: 2px solid var(--primary-color);
 }
 
+.discount-flag {
+  background-color: #ff3b3b;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
 /* End utility classes */
 
 /* Cart icon styles */
-.cart {
-  padding-top: 1em;
+/*I added a new line here display: inline-block; */
+/*.cart {
+  padding-top: 2em;
   position: relative;
   text-align: center;
+  display: inline-block;
+}*/
+
+/* this css to show the cart counter*/
+
+.cart {
+  position: relative;
+  display: inline-block;
+  
+}
+
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: red;
+  color: white;
+  font-size: 0.75em;
+  padding: 4px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 100;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
 }
 
 .cart svg {
   width: 25px;
+
 }
+
 
 .cart:hover svg {
   fill: gray;
@@ -166,6 +207,23 @@ button {
 .product-list a {
   text-decoration: none;
   color: var(--dark-grey);
+}
+
+/*total$ in cart*/
+.hide {
+  display: none;
+}
+
+.cart-footer {
+  padding: 1em;
+  border-top: 1px solid #ccc;
+  text-align: right;
+  background-color: #f9f9f9;
+}
+
+.cart-total {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 /* Styles for product lists */

@@ -1,0 +1,29 @@
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 19:01:38 -0600}: checkout: moving from main to discount-feature
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 19:01:02 -0600}: checkout: moving from checkDiscount to main
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 18:46:53 -0600}: reset: moving to checkDiscount
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 16:11:46 -0600}: checkout: moving from main to checkDiscount
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 15:47:43 -0600}: checkout: moving from main to main
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-14 15:46:53 -0600}: checkout: moving from main to main
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-13 15:27:34 -0600}: merge sh--individual2: Fast-forward
+[33m244d927[m HEAD@{2025-09-13 15:27:34 -0600}: checkout: moving from sh--individual2 to main
+[33mfe708fe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdiscount-feature[m[33m, [m[1;31morigin/sh--individual2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msh--individual2[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2025-09-13 15:04:33 -0600}: commit: individual work for Sergio Herrera week two
+[33m244d927[m HEAD@{2025-09-13 15:03:41 -0600}: checkout: moving from main to sh--individual2
+[33m244d927[m HEAD@{2025-09-12 23:28:33 -0600}: commit: arreglo en product.js
+[33m2229061[m HEAD@{2025-09-12 23:13:08 -0600}: commit (merge): Resolved merge conflict in product.js
+[33m289d3f6[m HEAD@{2025-09-12 23:08:48 -0600}: checkout: moving from main to main
+[33m289d3f6[m HEAD@{2025-09-12 22:47:11 -0600}: checkout: moving from main to main
+[33m289d3f6[m HEAD@{2025-09-12 22:29:49 -0600}: checkout: moving from driversh--team17 to main
+[33m8faaf0a[m[33m ([m[1;31morigin/driversh--team17[m[33m, [m[1;32mdriversh--team17[m[33m)[m HEAD@{2025-09-12 22:17:23 -0600}: commit: week 2 team activity error solution for cast
+[33m78af3eb[m HEAD@{2025-09-12 21:35:14 -0600}: commit: week2 team activity
+[33m5418599[m[33m ([m[1;31mupstream/driversh--team17[m[33m)[m HEAD@{2025-09-12 21:32:34 -0600}: checkout: moving from main to driversh--team17
+[33m289d3f6[m HEAD@{2025-09-12 21:32:26 -0600}: checkout: moving from driversh--team17 to main
+[33m5418599[m[33m ([m[1;31mupstream/driversh--team17[m[33m)[m HEAD@{2025-09-12 21:31:44 -0600}: checkout: moving from main to driversh--team17
+[33m289d3f6[m HEAD@{2025-09-12 21:03:46 -0600}: commit: TEST
+[33m8826745[m HEAD@{2025-09-12 20:46:52 -0600}: commit: test3
+[33m7c202bd[m HEAD@{2025-09-12 20:44:30 -0600}: commit: test2
+[33m6928bdb[m HEAD@{2025-09-12 20:40:27 -0600}: commit: test1
+[33maa5bcf3[m HEAD@{2025-09-12 20:33:50 -0600}: commit: week 1
+[33m1c5ef8d[m HEAD@{2025-09-12 20:24:47 -0600}: commit: week 1 activity
+[33m92e9160[m[33m ([m[1;32msergio-fork-version[m[33m)[m HEAD@{2025-09-12 19:56:59 -0600}: checkout: moving from sergio-fork-version to main
+[33m92e9160[m[33m ([m[1;32msergio-fork-version[m[33m)[m HEAD@{2025-09-12 18:05:39 -0600}: checkout: moving from main to sergio-fork-version
+[33m92e9160[m[33m ([m[1;32msergio-fork-version[m[33m)[m HEAD@{2025-09-12 17:58:39 -0600}: clone: from github.com:Seruhio30/WDD-330-Web-Frontend-Development-II.git
