@@ -1,24 +1,18 @@
 import ProductData from './ProductData.mjs';
 import ProductList from './ProductList.mjs';
-import { loadHeaderFooter, getParam, updateCartCount } from './utils.mjs';
+import { loadHeaderFooter, getParam } from './utils.mjs';
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadHeaderFooter();
-  updateCartCount(); // ✅ Mantenemos esto para que muestre el número del carrito
+loadHeaderFooter();
 
-  // ✅ Obtener categoría de la URL
-  const category = getParam('category') || 'tents';
-  document.getElementById('category-title').textContent = `Top Products: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
-  // ✅ Crear DataSource y elemento donde renderizar
-  const dataSource = new ProductData();
-  const listElement = document.querySelector('.product-list');
+const category = getParam('category'); // ← esto permite que la categoría sea dinámica
+const dataSource = new ProductData(category);
+const listElement = document.querySelector('.product-list');
+const productList = new ProductList(category, dataSource, listElement);
+productList.init();
+// Antes se usaba: `Top Products: ${category}` dentro del span, lo que duplicaba el encabezado.
+document.querySelector('.title').textContent = category;
 
-  // ✅ Crear ProductList con categoría
-  const myList = new ProductList(category, dataSource, listElement);
 
-  // ✅ Inicializar la lista
-  await myList.init();
 
-  // ✅ Cambiar título dinámicamente
-  document.querySelector('#category-title').textContent = `Top Products: ${category}`;
-});
+
+

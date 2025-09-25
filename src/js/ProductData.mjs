@@ -1,4 +1,6 @@
 const baseURL = import.meta.env.VITE_SERVER_URL;
+console.log('Base URL:', baseURL);
+
 
 function convertToJson(res) {
   if (res.ok) return res.json();
@@ -13,6 +15,8 @@ export default class ProductData {
     const data = await convertToJson(response);
     console.log('API getData result:', data);
    console.log('Primer producto:', data.Result[0]);
+   console.log('ID del primer producto:', data.Result[0].Id);
+
 
 
     return data.Result ?? []; // fallback a [] si Result no existe
