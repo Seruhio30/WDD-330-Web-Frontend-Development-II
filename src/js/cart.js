@@ -15,7 +15,9 @@ function renderCartContents() {
   if (cartItems.length > 0) {
     const total = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
     document.querySelector('.cart-footer').classList.remove('hide');
-    document.querySelector('.cart-total').textContent = `Total: $${total}`;
+    //agregue toFixed(2) para que de solo2 decinales
+   document.querySelector('.cart-total').textContent = `Total: $${total.toFixed(2)}`;
+
   } else {
     document.querySelector('.cart-footer').classList.add('hide');
     document.querySelector('.cart-total').textContent = `Total: $0`;
@@ -26,7 +28,8 @@ function renderCartContents() {
 function cartItemTemplate(item) {
   return `<li class="cart-card divider">
     <a href="#" class="cart-card__image">
-      <img src="${item.Image}" alt="${item.Name}" />
+      <img src="${item.Images?.PrimaryMedium || '/images/placeholder.png'}" alt="${item.Name}" />
+
     </a>
     <a href="#">
       <h2 class="card__name">${item.Name}</h2>

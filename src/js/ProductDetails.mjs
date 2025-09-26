@@ -1,4 +1,7 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getParam } from "./utils.mjs";
+
+const productId = getParam('id');
+console.log('Product ID:', productId);
 
 export default class ProductDetails {
 
@@ -9,16 +12,27 @@ export default class ProductDetails {
   }
 
   async init() {
-    // use the datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
-    this.product = await this.dataSource.findProductById(this.productId);
-    // the product details are needed before rendering the HTML
-    this.renderProductDetails();
-    // once the HTML is rendered, add a listener to the Add to Cart button
-    // Notice the .bind(this). This callback will not work if the bind(this) is missing. Review the readings from this week on 'this' to understand why.
-    document
-      .getElementById('addToCart')
-      .addEventListener('click', this.addProductToCart.bind(this));
+
+    try {
+      const storedProduct = localStorage.getItem('selected-product');
+      if (!storedProduct) throw new Error('No hay producto guardado');
+
+      this.product = JSON.parse(storedProduct);
+      this.renderProductDetails();
+
+      document
+        .getElementById('addToCart')
+        .addEventListener('click', this.addProductToCart.bind(this));
+
+      localStorage.removeItem('selected-product');
+    } catch (err) {
+      console.error('Error al cargar el producto:', err);
+      document.querySelector('main').innerHTML = `
+      <p class="error-message">Producto no disponible. Intenta desde el listado.</p>
+    `;
+    }
   }
+
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
@@ -36,12 +50,13 @@ function productDetailsTemplate(product) {
   document.querySelector('h3').textContent = product.NameWithoutBrand;
 
   const productImage = document.getElementById('productImage');
-  productImage.src = product.Image;
-  productImage.alt = product.NameWithoutBrand;
+  productImage.src = product.Images?.PrimaryLarge || product.Images?.PrimaryMedium || '/images/placeholder.png';
 
-  document.getElementById('productPrice').textContent = product.FinalPrice;
-  document.getElementById('productColor').textContent = product.Colors[0].ColorName;
-  document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple;
+  productImage.alt = product.NameWithoutBrand || product.Name;
+
+  document.getElementById('productPrice').textContent = `$${product.FinalPrice?.toFixed(2) || 'N/A'}`;
+  document.getElementById('productColor').textContent = product.Colors?.[0]?.ColorName || 'Color no disponible';
+  document.getElementById('productDesc').innerHTML = product.DescriptionHtmlSimple || 'Sin descripción disponible';
 
   document.getElementById('addToCart').dataset.id = product.Id;
 
@@ -70,4 +85,3 @@ if (final < original) {
 
 }
 
-      

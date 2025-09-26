@@ -1,6 +1,8 @@
-import ProductData from './ProductData.mjs';
-import ProductList from './ProductList.mjs';
-import { getLocalStorage,updateCartCount, loadHeaderFooter} from './utils.mjs';
+import { getLocalStorage } from './utils.mjs';
+import { updateCartCount } from './utils.mjs';
+import { loadHeaderFooter } from './utils.mjs';
+
+loadHeaderFooter();
 
 document.addEventListener("DOMContentLoaded", async () => {
   if (document.querySelector("#main-header") && document.querySelector("#main-footer")) {
@@ -8,16 +10,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   updateCartCount();
 
-const listElement = document.querySelector('.product-list');
-const dataSource = new ProductData('tents');
-
-const productList = new ProductList('tents', dataSource, listElement);
-productList.init(); 
-
-
-
-console.log('Cart:', getLocalStorage('so-cart'));
-
+  console.log('Cart:', getLocalStorage('so-cart'));
 });
-
-
