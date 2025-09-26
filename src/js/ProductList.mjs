@@ -11,7 +11,7 @@ function productCardTemplate(product) {
         <h3 class="card__name">${product.Name}</h3>
         <p class="product-card__price">
           $${product.FinalPrice}
-          ${isDiscounted ? `<span class="discount-flag">¡Descuento!</span>` : ''}
+          ${isDiscounted ? `<span class="discount-flag">Discount!</span>` : ''}
         </p>
       </a>
     </li>
