@@ -99,3 +99,6 @@ export function updateCartCount() {
     countElement.textContent = itemCount;
   }
 }
+export function isDiscounted(product) {
+  return product.discount && product.discount > 0;
+}

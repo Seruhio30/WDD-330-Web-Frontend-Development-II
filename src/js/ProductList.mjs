@@ -1,20 +1,10 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { renderListWithTemplate, isDiscounted } from "./utils.mjs";
 
 //<a href="/product_pages/product_detail.html" class="product-link" data-id="${product.Id}">
 // <a href="/product_pages/product_detail.html?id=${product.Id}">
 function productCardTemplate(product) {
   return `
     <li class="product-card">
-<<<<<<< HEAD
-      <a href="product_pages/?product=${product.Id}">
-        <img src="${product.Image}" alt="Image of ${product.Name}">
-        <h2 class="card__brand">${product.Brand.Name}</h2>
-        <h3 class="card__name">${product.Name}</h3>
-        <p class="product-card__price">
-          $${product.FinalPrice}
-          ${isDiscounted ? `<span class="discount-flag">Discount!</span>` : ''}
-        </p>
-=======
      
       <a href="/product_pages/product_detail.html?id=${product.Id}" class="product-link" data-id="${product.Id}">
 
@@ -23,7 +13,6 @@ function productCardTemplate(product) {
         <h3>${product.Brand.Name}</h3>
         <p>${product.NameWithoutBrand}</p>
         <p class="product-card__price">$${product.FinalPrice}</p>
->>>>>>> SH--individual3
       </a>
     </li>
     

@@ -88,10 +88,14 @@
       font-size: 1rem;
     }
   </style>
+ 
   <script type="module" src="../js/checkout.js"></script>
 </head>
 
 <body>
+     <header class="divider" id="main-header">
+
+    </header>
   <main class="divider">
     <section class="products">
       <h2>Review & Place your Order</h2>
@@ -136,13 +140,15 @@
       </form>
     </section>
 
-    🔒 El formulario no debe enviarse si hay campos vacíos.
-    <h2>Order Summary</h2>
-    <p>Subtotal: <span id="subtotal">$0.00</span></p>
-    <p>Tax: <span id="tax">$0.00</span></p>
-    <p>Shipping Estimate: <span id="shipping">$0.00</span></p>
-    <p><strong>Order Total: <span id="total">$0.00</span></strong></p>
-    </section>
+<section id="orderSummary">
+<h2>Order Summary</h2>
+  <p>Subtotal: <span id="subtotal">$0.00</span></p>
+  <p>Tax: <span id="tax">$0.00</span></p>
+  <p>Shipping Estimate: <span id="shipping">$0.00</span></p>
+  <p><strong>Order Total: <span id="total">$0.00</span></strong></p>
+</section>
+
+
 
   </main>
 

@@ -1,6 +1,7 @@
 import { updateCartCount, loadHeaderFooter, getLocalStorage } from './utils.mjs';
 import CheckoutProcess from './CheckoutProcess.mjs';
 
+
 document.addEventListener("DOMContentLoaded", () => {
   // Carga header y footer si existen
   loadHeaderFooter();

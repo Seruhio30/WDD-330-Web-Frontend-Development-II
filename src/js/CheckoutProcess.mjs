@@ -19,9 +19,7 @@ export default class CheckoutProcess {
 
   // Calcula el subtotal usando FinalPrice
   calculateItemSubTotal() {
-    this.itemTotal = this.list.reduce((sum, item) => {
-      return sum + (item.FinalPrice || 0); // usa FinalPrice como en cart.js
-    }, 0);
+   this.itemTotal = this.list.reduce((sum, item) => sum + (item.FinalPrice || 0), 0);
 
     const subtotalEl = document.querySelector(`${this.outputSelector} #subtotal`);
     if (subtotalEl) {
