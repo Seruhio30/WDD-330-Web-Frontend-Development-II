@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 export default class CheckoutProcess {
@@ -72,7 +72,7 @@ export default class CheckoutProcess {
 
     // Corrige el formato de la fecha de expiración
     const [year, month] = order.expDate.split("-");
-    //const expiration = `${month}/${year}`; // "12/2025"
+
 
     const payload = {
       orderDate: new Date().toISOString(),
@@ -83,7 +83,7 @@ export default class CheckoutProcess {
       state: order.state,
       zip: order.zip,
       cardNumber: order.cardNumber.trim().padStart(16, "0"),
-       expiration: `${month}/${year}`, // ← corregido
+      expiration: `${month}/${year}`, // ← corregido
       code: order.securityCode.trim().slice(0, 3),
       items: this.packageItems(this.list),
       orderTotal: this.orderTotal.toFixed(2),
@@ -96,11 +96,19 @@ export default class CheckoutProcess {
     try {
       const response = await this.services.checkout(payload);
       console.log("Pedido enviado con éxito:", response);
-      alert("¡Pedido enviado correctamente!");
+
       localStorage.removeItem(this.key); // limpia el carrito
+
+      window.location.href = 'success.html'; // redirige al usuario
     } catch (err) {
       console.error("Error al enviar el pedido:", err);
-      alert("Hubo un problema al enviar el pedido.");
+
+      if (err.name === 'servicesError') {
+        const serverMessage = err.message?.detail || "Hubo un error con tu pedido.";
+        alert(`Error del servidor: ${serverMessage}`);
+      } else {
+        alert("Hubo un problema inesperado al enviar el pedido.");
+      }
     }
   }
 }

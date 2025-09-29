@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, getParam } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getParam , alertMessage} from "./utils.mjs";
 
 const productId = getParam('id');
 console.log('Product ID:', productId);
@@ -23,6 +23,7 @@ export default class ProductDetails {
       document
         .getElementById('addToCart')
         .addEventListener('click', this.addProductToCart.bind(this));
+        
 
       localStorage.removeItem('selected-product');
     } catch (err) {
@@ -38,6 +39,8 @@ export default class ProductDetails {
     const cartItems = getLocalStorage("so-cart") || [];
     cartItems.push(this.product);
     setLocalStorage("so-cart", cartItems);
+     alertMessage("Producto agregado al carrito 🛒", false);
+
   }
 
   renderProductDetails() {
