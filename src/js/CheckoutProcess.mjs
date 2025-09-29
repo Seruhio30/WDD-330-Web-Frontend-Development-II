@@ -72,7 +72,7 @@ export default class CheckoutProcess {
 
     // Corrige el formato de la fecha de expiración
     const [year, month] = order.expDate.split("-");
-    const expiration = `${month}/${year}`; // "12/2025"
+    //const expiration = `${month}/${year}`; // "12/2025"
 
     const payload = {
       orderDate: new Date().toISOString(),
