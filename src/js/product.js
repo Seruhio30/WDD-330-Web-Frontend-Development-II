@@ -1,4 +1,4 @@
-import ProductData from './ProductData.mjs';
+import ExternalServices from './ExternalServices.mjs';
 import { getParam, getLocalStorage, setLocalStorage,updateCartCount,loadHeaderFooter } from './utils.mjs';
 import ProductDetails from './ProductDetails.mjs';
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const productId = getParam('product');
-  const dataSource = new ProductData('tents');
+  const dataSource = new ExternalServices('tents');
   const productDetails = new ProductDetails(productId, dataSource);
   await productDetails.init();
 

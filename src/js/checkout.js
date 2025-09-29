@@ -1,5 +1,10 @@
 import { updateCartCount, loadHeaderFooter, getLocalStorage } from './utils.mjs';
-import CheckoutProcess from './CheckoutProcess.mjs';
+
+import CheckoutProcess from "./CheckoutProcess.mjs";
+
+const checkout = new CheckoutProcess("checkoutForm", "orderSummary");
+checkout.init();
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
