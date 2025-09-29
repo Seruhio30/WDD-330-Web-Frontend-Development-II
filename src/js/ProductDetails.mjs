@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, getParam , alertMessage} from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getParam, alertMessage } from "./utils.mjs";
 
 const productId = getParam('id');
 console.log('Product ID:', productId);
@@ -23,7 +23,7 @@ export default class ProductDetails {
       document
         .getElementById('addToCart')
         .addEventListener('click', this.addProductToCart.bind(this));
-        
+
 
       localStorage.removeItem('selected-product');
     } catch (err) {
@@ -37,16 +37,24 @@ export default class ProductDetails {
 
   addProductToCart() {
     const cartItems = getLocalStorage("so-cart") || [];
-    cartItems.push(this.product);
+
+    // Buscar si el producto ya está en el carrito
+    const existingItem = cartItems.find(item => item.Id === this.product.Id);
+
+    if (existingItem) {
+      // Si ya existe, incrementar la cantidad
+      existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+      // Si no existe, agregarlo con cantidad 1
+      const newItem = { ...this.product, quantity: 1 };
+      cartItems.push(newItem);
+    }
+
     setLocalStorage("so-cart", cartItems);
-     alertMessage("Producto agregado al carrito 🛒", false);
-
-  }
-
-  renderProductDetails() {
-    productDetailsTemplate(this.product);
+    alertMessage("Producto agregado al carrito 🛒", false);
   }
 }
+
 
 function productDetailsTemplate(product) {
   document.querySelector('h2').textContent = product.Brand.Name;
@@ -63,27 +71,27 @@ function productDetailsTemplate(product) {
 
   document.getElementById('addToCart').dataset.id = product.Id;
 
-    // aqui se agrega el badge de descuento si aplica
-const original = product.SuggestedRetailPrice;
-const final = product.FinalPrice;
+  // aqui se agrega el badge de descuento si aplica
+  const original = product.SuggestedRetailPrice;
+  const final = product.FinalPrice;
 
-if (final < original) {
-  const discountPercent = Math.round(((original - final) / original) * 100);
+  if (final < original) {
+    const discountPercent = Math.round(((original - final) / original) * 100);
 
-  // eliminar badge viejo si existe
-  const oldBadge = document.querySelector(".discount-badge");
-  if (oldBadge) oldBadge.remove();
+    // eliminar badge viejo si existe
+    const oldBadge = document.querySelector(".discount-badge");
+    if (oldBadge) oldBadge.remove();
 
-  // crear nuevo badge
-  const discountBadge = document.createElement("div");
-  discountBadge.classList.add("discount-badge");
-  discountBadge.textContent = `-${discountPercent}% OFF`; // inglés
+    // crear nuevo badge
+    const discountBadge = document.createElement("div");
+    discountBadge.classList.add("discount-badge");
+    discountBadge.textContent = `-${discountPercent}% OFF`; // inglés
 
-  const productContainer = document.querySelector(".product-detail");
-  if (productContainer) {
-    productContainer.prepend(discountBadge);
+    const productContainer = document.querySelector(".product-detail");
+    if (productContainer) {
+      productContainer.prepend(discountBadge);
+    }
   }
-}
 
 
 }
